@@ -82,6 +82,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <Scripts.Header experimentationAllowOverride={ !forceDisableOverride } />
         { enableDemoTools && <link key="dynamic-styles" rel="stylesheet" href="/main.css" ></link> }
+         {/* Optimizely Web Experimentation must load synchronously to prevent flicker */}
++        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script src="https://cdn.optimizely.com/js/4638046837014528.js"></script>
       </head>
       <ThemeProvider value={{ theme: "system" }}>
